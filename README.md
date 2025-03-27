@@ -2,11 +2,15 @@
 
 This project is a **real-time IoT-based monitoring system** for temperature and humidity, visualized using **Chart.js** on a web dashboard. The system retrieves data from sensors via MQTT and displays it dynamically with charts.
 
+---
+
 ## 🚀 Features
 - 📡 **Real-time data monitoring** using MQTT protocol.
 - 📊 **Interactive charts** for temperature and humidity (Chart.js).
 - 📅 **Dynamic data** that updates automatically.
 - ⚡ **Lightweight & responsive** web-based dashboard.
+
+---
 
 ## 🛠️ Technologies Used
 - **ESP32** (for sensor data acquisition)
@@ -14,6 +18,8 @@ This project is a **real-time IoT-based monitoring system** for temperature and 
 - **MQTT Protocol** (via `broker.emqx.io`)
 - **JavaScript + Chart.js** (for data visualization)
 - **HTML + CSS** (for UI design)
+
+---
 
 ## 📜 How It Works
 1. **Sensor Data Collection**  
@@ -28,5 +34,22 @@ This project is a **real-time IoT-based monitoring system** for temperature and 
    - Temperature and humidity data are plotted dynamically.
    - Old data points are automatically removed to keep the dashboard clean.
 
-## 📊 Dashboard Display
+---
 
+## 📊 Dashboard Display
+![IoT Dashboard Preview](https://github.com/Andreasss1/IoT-Web-dashboard/blob/main/iot-web-dashboard.png)
+
+---
+
+<div align="center">
+
+## 📬 Need a Similar Project? Let's Collaborate!
+If you need a **custom IoT project** for **smart home, agriculture, industrial monitoring**, or other use cases,  
+I’m ready to assist you!  
+
+📧 **Reach out at:**  
+### andreas.sebayang9999@gmail.com  
+
+Let’s create something amazing together! 🚀
+
+</div>
