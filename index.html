@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Dashboard Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        canvas {
+            width: 45%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>IoT Dashboard Project</h1>
+    <div class="chart-container">
+        <canvas id="tempChart"></canvas>
+        <canvas id="humChart"></canvas>
+    </div>
+
+    <script>
+        const brokerUrl = "ws://broker.emqx.io:8083/mqtt";
+        const topicTemp = "120323430448/dht22/temp";
+        const topicHum = "120323430448/dht22/hum";
+
+        const client = mqtt.connect(brokerUrl);
+        const labels = [];
+        const tempData = [];
+        const humData = [];
+
+        const ctxTemp = document.getElementById("tempChart").getContext("2d");
+        const tempChart = new Chart(ctxTemp, {
+            type: "line",
+            data: { labels: labels, datasets: [{ label: "Temperature (°C)", data: tempData, borderColor: "red" }] },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+        const ctxHum = document.getElementById("humChart").getContext("2d");
+        const humChart = new Chart(ctxHum, {
+            type: "line",
+            data: { labels: labels, datasets: [{ label: "Humidity (%)", data: humData, borderColor: "blue" }] },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+        client.on("connect", () => {
+            client.subscribe([topicTemp, topicHum]);
+        });
+
+        client.on("message", (topic, message) => {
+            const value = parseFloat(message.toString());
+            const time = new Date().toLocaleTimeString();
+
+            if (labels.length > 20) {
+                labels.shift();
+                tempData.shift();
+                humData.shift();
+            }
+
+            if (topic === topicTemp) tempData.push(value);
+            if (topic === topicHum) humData.push(value);
+            labels.push(time);
+
+            tempChart.update();
+            humChart.update();
+        });
+    </script>
+</body>
+</html>
