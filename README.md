@@ -1,23 +1,23 @@
 # IoT Temperature and Humidity Monitoring Dashboard 🌡️💧
 
-This project is a **real-time IoT-based monitoring system** for temperature and humidity, visualized using **Chart.js** on a web dashboard. The system retrieves data from sensors via MQTT and displays it dynamically with charts and tables.
+This project is a **real-time IoT-based monitoring system** for temperature and humidity, visualized using **Chart.js** on a web dashboard. The system retrieves data from sensors via MQTT and displays it dynamically with charts.
 
 ## 🚀 Features
 - 📡 **Real-time data monitoring** using MQTT protocol.
 - 📊 **Interactive charts** for temperature and humidity (Chart.js).
-- 📅 **Dynamic data table** that updates automatically.
+- 📅 **Dynamic data** that updates automatically.
 - ⚡ **Lightweight & responsive** web-based dashboard.
 
 ## 🛠️ Technologies Used
-- **ESP32/ESP8266** (for sensor data acquisition)
-- **DHT22/DHT11** (temperature & humidity sensor)
+- **ESP32** (for sensor data acquisition)
+- **DHT22** (temperature & humidity sensor)
 - **MQTT Protocol** (via `broker.emqx.io`)
 - **JavaScript + Chart.js** (for data visualization)
 - **HTML + CSS** (for UI design)
 
 ## 📜 How It Works
 1. **Sensor Data Collection**  
-   - The ESP32/ESP8266 reads temperature and humidity from the DHT22 sensor.
+   - The ESP32 reads temperature and humidity from the DHT22 sensor.
    - The data is sent via MQTT to an online broker.
 
 2. **Data Transmission & Processing**  
@@ -28,8 +28,5 @@ This project is a **real-time IoT-based monitoring system** for temperature and 
    - Temperature and humidity data are plotted dynamically.
    - Old data points are automatically removed to keep the dashboard clean.
 
-## 📦 Installation & Usage
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+## 📊 Dashboard Display
+
